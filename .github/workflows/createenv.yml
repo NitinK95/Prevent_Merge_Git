@@ -12,5 +12,5 @@ jobs:
         with:
           envkey_DEBUG: false
           envkey_SOME_API_KEY: "123456abcdef"
-          envkey_SECRET_KEY: ${{ secrets.server }}
+          envkey_SECRET_KEY: ${{ secrets.SERVER }}
           file_name: .env
