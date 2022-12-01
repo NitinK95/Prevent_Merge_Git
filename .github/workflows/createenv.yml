@@ -10,7 +10,5 @@ jobs:
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1.3.0
         with:
-          envkey_DEBUG: false
           envkey_SOME_API_KEY: "123456abcdef"
-          envkey_SECRET_KEY: ${{ secrets.SERVER }}
           file_name: .env
