@@ -35,14 +35,10 @@ on: [push]
 jobs:
   create-envfile:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Create env file
+      - name: 'Create env file'
         run: |
           touch .env
-          echo POSTGRES_USER=${POSTGRES_USER} >> .env
-          echo POSTGRES_PASSWORD=${POSTGRES_PASSWORD} >> .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
           cat .env
-      env: 
-      POSTGRES_USER: ${{ secrets.ENV }} 
       
