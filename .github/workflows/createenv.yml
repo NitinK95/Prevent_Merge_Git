@@ -15,15 +15,31 @@
 #           file_name: .env
 #           fail_on_empty: false
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   create_env_file_job:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Create .env file
+#         uses: ozaytsev86/create-env-file@v1
+#         with:
+#           ENV_TEST_API_KEY: ${{ secrets.SERVER }}
+
+name: Create envfile
+
+on: [push]
+
 jobs:
-  create_env_file_job:
+  create-envfile:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
-        with:
-          ENV_TEST_API_KEY: ${{ secrets.SERVER }}
+      - name: Make envfile
+        run: |
+          touch .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+          echo API_KEY=${{ secrets.SERVER }} >> .env
+          cat .env
